@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import './App.css';
 import Todos from './components/Todos';
+import { TodoProvider } from './TodoContext';
 
 const AppContainer = createGlobalStyle`
   * {
@@ -21,8 +22,10 @@ const AppContainer = createGlobalStyle`
 function App() {
   return (
     <>
-      <AppContainer />
-      <Todos></Todos>
+      <TodoProvider>
+        <AppContainer />
+        <Todos></Todos>
+      </TodoProvider>
     </>
   );
 }

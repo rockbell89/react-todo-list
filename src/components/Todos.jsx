@@ -16,9 +16,10 @@ const TodoContainer = styled.div`
   width: 100%;
   min-width: 400px;
   max-width: 400px;
-  min-height: 600px;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 100px;
 `;
 
 function Todos() {

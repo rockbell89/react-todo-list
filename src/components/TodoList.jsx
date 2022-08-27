@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTodoState } from '../TodoContext';
 import TodoItem from './TodoItem';
 
 const TodoListWrapper = styled.div`
@@ -8,12 +9,21 @@ const TodoListWrapper = styled.div`
 `;
 
 function TodoList() {
+  const todos = useTodoState();
+
   return (
     <TodoListWrapper>
-      <TodoItem text="TODO LIST" done={true} />
-      <TodoItem text="TODO LIST 2" done={false} />
-      <TodoItem text="TODO LIST 3" done={false} />
-      <TodoItem text="TODO LIST 4" done={false} />
+      {todos &&
+        todos.map((todo) => {
+          return (
+            <TodoItem
+              id={todo.id}
+              text={todo.text}
+              done={todo.done}
+              key={todo.id}
+            ></TodoItem>
+          );
+        })}
     </TodoListWrapper>
   );
 }
